@@ -39,7 +39,7 @@ makeCacheMatrix <- function(x = matrix()) {
         cachedInverse <<- NULL
     }
     
-    ## return a list conraining original matrix and two functions
+    # return a list conraining original matrix and two functions
     list(get = get, set = set, getInverse = getInverse, setInverse = setInverse)
 }
 
@@ -49,11 +49,11 @@ makeCacheMatrix <- function(x = matrix()) {
 ## Other parameters are used to pass to solve function
 ## when calculating inverse value for the first time
 cacheSolve <- function(x, ...) {
-    ## Try getting inverse value
+    # Try getting inverse value
     result <- x$getInverse()
     
-    ## If the value is null, it hasn't yet been computed
-    ## so we compute it here and save it for the future
+    # If the value is null, it hasn't yet been computed
+    # so we compute it here and save it for the future
     if (is.null(result)) {
         result <- solve(x$get(), ...)
         x$setInverse(result)
@@ -64,7 +64,9 @@ cacheSolve <- function(x, ...) {
     result
 }
 
-## Test function
+## Test function - call it to confirm the correctness
+## of the two functions above
+## You should see series of messages but no errors
 testCacheSolve <- function() {
     # Use makeCacheMatrix to make a matrix object:
     message("Creating new matrix 4x4..")
