@@ -90,7 +90,7 @@ testCacheSolve <- function() {
     
     # Verify that myInverse was indeed cached:
     test <- myMatrix$getInverse()
-    if (all(test == myInverse)) {
+    if (identical(test, myInverse)) {
         message("Inverse value was cached!")
     } else {
         stop("Something is wrong! Inverse value was not cached!")
@@ -114,7 +114,7 @@ testCacheSolve <- function() {
     
     # Verify that myInverse was indeed cached:
     test <- myMatrix$getInverse()
-    if (all(test == myInverse)) {
+    if (identical(test, myInverse)) {
         message("Inverse value was cached!")
     } else {
         stop("Something is wrong! Inverse value was not cached!")
